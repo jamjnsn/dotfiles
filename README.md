@@ -1,6 +1,6 @@
 ## Installation
 ```
-git clone git@github.com:jamjnsn/dotfiles.git .dotfiles && cat $HOME/.dotfiles/install.sh | bash
+git clone https://github.com/jamjnsn/dotfiles.git .dotfiles && cat $HOME/.dotfiles/install.sh | bash
 ```
 
 ## References

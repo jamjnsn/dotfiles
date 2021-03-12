@@ -1,8 +1,5 @@
 #!/bin/bash
 
-git clone git@github.com:jamjnsn/dotfiles.git $HOME/.dotfiles
-
-mkdir -p $HOME/.dotfiles
 ln -s $HOME/.dotfiles/.rc $HOME/.rc
 ln -s $HOME/.dotfiles/.nanorc $HOME/.nanorc
 ln -s $HOME/.dotfiles/.scripts $HOME/.scripts

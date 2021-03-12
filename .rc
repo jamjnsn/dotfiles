@@ -91,4 +91,3 @@ dshell () { docker exec -it $1 /bin/bash; }
 
 # Stop unless running interactively
 [[ $- != *i* ]] && return
-clear

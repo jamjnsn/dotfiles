@@ -3,6 +3,7 @@
 # ================================================================================
 
 export PATH="$PATH:$HOME/.scripts"
+export EDITOR="nano"
 
 # ================================================================================
 #  * Aliases
@@ -32,7 +33,7 @@ alias weather='curl https://wttr.in'
 alias ps='ps aux'
 alias root="sudo -i"
 alias ports="netstat -tulanp"
-alias targz="tar -czvf"
+#alias targz="tar -czvf"
 alias wget="wget -c"
 alias ping='ping -c 5'
 alias iploc="hostname -I"
@@ -88,6 +89,29 @@ cheat(){ curl cheat.sh/"$@"; }
 restart_app() { killall "$1" && $1 &  }
 mkcd () { mkdir -p -- "$1" && cd -P -- "$1"; }
 dshell () { docker exec -it $1 /bin/bash; }
+
+tgz () {
+	TARGET=$1
+
+	if [[ -d $TARGET ]]; then
+		# Target is a directory
+	elif [[ -f $TARGET ]]; then
+		# Target is a file
+    else
+		echo "$TARGET not found"
+		return 0
+	fi
+	
+	OUTPUT=$(basename -- $TARGET).tar.gz
+
+	if [[ -f $OUTPUT ]]; then
+		echo "$OUTPUT exists"
+		return 0
+	fi
+	
+	tar -czvf $OUTPUT $1
+	echo "Created $OUTPUT"
+}
 
 # Stop unless running interactively
 [[ $- != *i* ]] && return

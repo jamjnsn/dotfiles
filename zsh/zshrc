@@ -17,9 +17,10 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 # Plugins
 fpath=($ZPLUGINSDIR/zsh-completions/src $fpath)     # zsh-completions
 source $ZPLUGINSDIR/bd.zsh                          # zsh-bd
-eval "$(mcfly init zsh)"                            # mcfly
 
-eval $(~/.linuxbrew/bin/brew shellenv)              # Homebrew
+if command -v mcfly &> /dev/null; then eval "$(mcfly init zsh)"; fi                            # mcfly
+
+[[ -f ~/.linuxbrew/bin/brew ]] && eval $(~/.linuxbrew/bin/brew shellenv)              # Homebrew
 
 # Aliases + functions
 source $DOTFILES/aliases

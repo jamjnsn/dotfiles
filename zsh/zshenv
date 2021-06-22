@@ -31,3 +31,4 @@ export NPM_CONFIG_PREFIX="$XDG_CONFIG_HOME/node_modules"
 # PATH
 export PATH="$COMPOSER_HOME/vendor/bin:$PATH"                       # COMPOSER
 export PATH="$NPM_BIN:$PATH"                
+export PATH="$HOME/.local/bin:$PATH"

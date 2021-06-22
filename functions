@@ -64,5 +64,5 @@ cpshell () {
   ssh-copy-id $1
 
   echo "Copying dotfiles..."
-  rsync -rav --progress $DOTFILES $1:~/.dotfiles
+  rsync -rav --progress $DOTFILES $1:~/
 }

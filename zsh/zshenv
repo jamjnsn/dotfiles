@@ -28,7 +28,11 @@ export NPM_PATH="$XDG_CONFIG_HOME/node_modules"
 export NPM_BIN="$XDG_CONFIG_HOME/node_modules/bin"
 export NPM_CONFIG_PREFIX="$XDG_CONFIG_HOME/node_modules"
 
+# Homebrew
+export HOMEBREW="$HOME/.linuxbrew"
+
 # PATH
 export PATH="$COMPOSER_HOME/vendor/bin:$PATH"                       # COMPOSER
 export PATH="$NPM_BIN:$PATH"                
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.linuxbrew/bin:$PATH"

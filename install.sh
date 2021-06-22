@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 source ./zsh/zshenv
 
@@ -16,10 +16,15 @@ if ! command -v brew &> /dev/null
 then
     echo "Installing Homebrew..."
     git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
-    mkdir ~/.linuxbrew/bin
-    ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
+    mkdir -p $HOMEBREW/bin
+    ln -s $HOMEBREW/Homebrew/bin/brew $HOMEBREW/bin
 fi
 
 # Install Homebrew packages
+brew install zsh
+
 brew tap cantino/mcfly
 brew install mcfly
+
+# Reload shell
+exec zsh

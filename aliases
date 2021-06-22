@@ -1,0 +1,50 @@
+
+# -------------------------
+# Directory navigation
+# -------------------------
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# -------------------------
+# ls
+# -------------------------
+alias ls='ls --color=auto'
+alias lsl='ls -l'
+alias ll='ls -lahF'
+alias lls='ls -lahFtr'
+alias la='ls -A'
+alias l='ls -CF'
+
+# -------------------------
+# Add default flags
+# -------------------------
+alias rm='rm -I'
+alias mv='mv -iv'
+alias cp='cp -riv'
+alias mkdir='mkdir -vp'
+
+# -------------------------
+# Curl
+# -------------------------
+alias ip='curl https://ipinfo.io/ip'
+alias weather='curl https://wttr.in'
+
+# -------------------------
+# Everything else
+# -------------------------
+alias root="sudo -i"
+alias ports="netstat -tulanp"
+alias wget="wget -c"
+alias ping='ping -c 5'
+alias iploc="hostname -I"
+alias dc="docker-compose"
+alias npmr='npm run'
+alias pkg='sudo apt'
+alias apt='sudo apt'
+
+alias reload='exec zsh'
+
+alias sail='bash vendor/bin/sail'
+alias artisan='php artisan'
+alias explore='explorer.exe .'

@@ -1,7 +1,9 @@
 ## Installation
 ```
-git clone https://github.com/jamjnsn/dotfiles.git $HOME/.dotfiles && cat $HOME/.dotfiles/install.sh | bash
+git clone https://github.com/jamjnsn/dotfiles.git $HOME/.dotfiles
+cd $HOME/.dotfiles/install.sh
+cat install.sh | zsh
 ```
 
 ## References
-- https://bitbucket.org/dinodroid/reddragon/src/master
+- https://thevaluable.dev/zsh-install-configure-mouseless/

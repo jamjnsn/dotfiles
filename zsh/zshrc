@@ -1,0 +1,31 @@
+# .zshrc
+# --- Shell config + command execution
+
+# Autocompletion
+autoload -U compinit; compinit
+_comp_options+=(globdots) # With hidden files
+
+# Prompt
+fpath=($DOTFILES/zsh $fpath)
+autoload -Uz prompt; prompt
+
+# Options
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+# Dir history
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# Plugins
+fpath=($ZPLUGINSDIR/zsh-completions/src $fpath)
+
+source $ZPLUGINSDIR/bd.zsh
+
+# Aliases + functions
+source $DOTFILES/aliases
+source $DOTFILES/functions
+
+# Highlighting
+source $ZPLUGINSDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

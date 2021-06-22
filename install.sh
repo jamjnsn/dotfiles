@@ -1,21 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
-ln -s $HOME/.dotfiles/.rc $HOME/.rc
-ln -s $HOME/.dotfiles/.nanorc $HOME/.nanorc
-ln -s $HOME/.dotfiles/.scripts $HOME/.scripts
+ln -sf $PWD/zsh/zshenv $HOME/.zshenv
+source $HOME/.zshenv
 
-SHELL=$(grep ^$USER: </etc/passwd | cut -f 7 -d ":")
-
-case $SHELL in
-	/bin/zsh)
-		echo "source \$HOME/.rc" >> $HOME/.zshrc
-		echo "Appended .rc to ~/.zshrc"
-		;;
-	/bin/bash)
-		echo "source \$HOME/.rc" >> $HOME/.bashrc
-		echo "Appended .rc to ~/.bashrc"
-		;;
-	*)
-		echo "Add .rc to your rc file"
-		;;
-esac
+ln -sf $DOTFILES/zsh/zshrc $ZDOTDIR/.zshrc
+ln -sf $DOTFILES/nanorc $ZDOTDIR/.nanorc
+ln -sf $DOTFILES/inputrc $ZDOTDIR/.inputrc

@@ -1,0 +1,11 @@
+set linenumbers
+set smooth                  # Set smooth scrolling
+set softwrap                # Set word wrapping
+set tabsize 4
+set titlecolor yellow
+set numbercolor yellow
+set statuscolor yellow
+set autoindent
+
+# Include available highlighting
+include "/usr/share/nano/*.nanorc"

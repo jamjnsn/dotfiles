@@ -1,0 +1,33 @@
+# .zshenv
+# --- Environment variables
+
+export DOTFILES="$HOME/.dotfiles"
+
+[ -f $DOTFILES/install_config ] && source $DOTFILES/install_config
+
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
+export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
+
+# Programs
+export EDITOR="nano"
+export VISUAL="nano"
+
+export COMPOSER_HOME="$XDG_CONFIG_HOME/composer"
+
+# zsh
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZPLUGINSDIR="$DOTFILES/zsh/plugins"
+export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
+export HISTSIZE=10000                   # Maximum events for internal history
+export SAVEHIST=10000                   # Maximum events in history file
+
+# NPM
+export NPM_PATH="$XDG_CONFIG_HOME/node_modules"
+export NPM_BIN="$XDG_CONFIG_HOME/node_modules/bin"
+export NPM_CONFIG_PREFIX="$XDG_CONFIG_HOME/node_modules"
+
+# PATH
+export PATH="$COMPOSER_HOME/vendor/bin:$PATH"                       # COMPOSER
+export PATH="$NPM_BIN:$PATH"                

@@ -1,0 +1,61 @@
+# List dir when CDing
+cd () {
+	DIR="$*";
+        if [ $# -lt 1 ]; then
+		DIR=$HOME;
+	fi;
+	builtin cd "${DIR}" && ls -F
+}
+
+# Extract an archive of pretty much any type
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+mkcd () { mkdir -p -- "$1" && cd -P -- "$1"; }
+
+dshell () { docker exec -it $1 /bin/bash; }
+
+# Send target to .tar.gz
+tgz () {
+	TARGET=$1
+
+	if [[ -d $TARGET ]]; then
+		# Target is a directory
+	elif [[ -f $TARGET ]]; then
+		# Target is a file
+    else
+		echo "$TARGET not found"
+		return 0
+	fi
+	
+	OUTPUT=$(basename -- $TARGET).tar.gz
+
+	if [[ -f $OUTPUT ]]; then
+		echo "$OUTPUT exists"
+		return 0
+	fi
+	
+	tar -czvf $OUTPUT $1
+	echo "Created $OUTPUT"
+}

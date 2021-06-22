@@ -102,7 +102,7 @@ prompt_setup() {
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd prompt_precmd
 
-    ZSH_THEME_GIT_PROMPT_PREFIX=" %F{yellow}λ:%f%F{blue}"
+    ZSH_THEME_GIT_PROMPT_PREFIX=" %F{magenta}λ:%f%F{blue}"
     ZSH_THEME_GIT_PROMPT_DIRTY=""
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
@@ -117,8 +117,8 @@ prompt_setup() {
     ZSH_THEME_GIT_PROMPT_AHEAD="%B%F{green}%f%b "
 
     prompt_git_branch
-    RPROMPT='$(prompt_git_info) $(git_prompt_status)'
-    PROMPT=$'%F{white}%~ %B%F{blue}❯❯%f%b '
+    RPROMPT='$(prompt_git_info)%f $(git_prompt_status)'
+    PROMPT=$'%F{blue}%~ %B%F{magenta}❯❯%f%b '
 }
 
 prompt_setup

@@ -2,6 +2,9 @@
 
 source ./zsh/zshenv
 
+# Pull submodules
+git submodule update --init --recursive
+
 # Install zsh
 mkdir -p $ZDOTDIR;
 ln -sf $DOTFILES/zsh/zshenv $HOME/.zshenv
